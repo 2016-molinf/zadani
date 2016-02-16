@@ -1,1 +1,1 @@
-# zadani
+# Zadání úloh Molekulární informatiky
