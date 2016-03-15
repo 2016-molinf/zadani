@@ -4,4 +4,7 @@ from django.contrib import admin
 
 from moldb.models import Structure
 
-admin.site.register(Structure)
+
+@admin.register(Structure)
+class Structure(admin.ModelAdmin):
+    list_display = ('mol', 'mol_weight')

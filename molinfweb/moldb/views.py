@@ -7,8 +7,9 @@ from rdkit.Chem import Draw
 
 from moldb.models import Structure
 
-# Create your views here.
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='/admin/login/')
 def structure_image(request, id):
     mol_obj = get_object_or_404(Structure, id=id)
     mol = Chem.MolFromSmiles(str(mol_obj.mol))
@@ -17,6 +18,7 @@ def structure_image(request, id):
     image.save(response,"PNG")
     return response
 
+@login_required(login_url='/admin/login/')
 def index(request):
     if request.method == "POST":
         Structure(mol=request.POST['mol']).save()
