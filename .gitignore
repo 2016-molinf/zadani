@@ -1,2 +1,4 @@
 .ipynb_checkpoints/
 *.pyc
+
+molinfweb/db.sqlite3
